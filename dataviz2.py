@@ -92,9 +92,13 @@ elif chart_type == 'Bar Chart':
 elif chart_type == 'Stacked Bar Chart':
     st.subheader("Stacked Bar Chart")
     # Filter by year
-    years = np.arange(2003, 2018)
+    years = np.append(np.arange(2003, 2018), 'Cumulative')
     selected_year = st.sidebar.selectbox("Select Year", years)
-    df_filtered = df[df['year'] == selected_year]
+    
+    if selected_year == 'Cumulative':
+        df_filtered = df[df['year'].isin(np.arange(2003, 2018))]
+    else:
+        df_filtered = df[df['year'] == int(selected_year)]
 
     grouped_data = df_filtered.groupby('waste_type')[['waste_disposed_of_tonne', 'total_waste_recycled_tonne']].sum()
 
