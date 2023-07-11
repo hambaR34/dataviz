@@ -92,7 +92,7 @@ elif chart_type == 'Bar Chart':
 elif chart_type == 'Stacked Bar Chart':
     st.subheader("Stacked Bar Chart")
     # Filter by year
-    years = np.append(np.arange(2003, 2018), 'Cumulative')
+    years = np.append(np.unique(2003, 2018), 'Cumulative')
     selected_year = st.sidebar.selectbox("Select Year", years)
     
     if selected_year == 'Cumulative':
