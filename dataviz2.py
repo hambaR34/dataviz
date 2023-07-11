@@ -92,7 +92,7 @@ elif chart_type == 'Bar Chart':
 elif chart_type == 'Stacked Bar Chart':
     st.subheader("Stacked Bar Chart")
     # Filter by year
-    years = df['year'].unique()
+    years = np.arange(2003, 2018)
     selected_year = st.sidebar.selectbox("Select Year", years)
     df_filtered = df[df['year'] == selected_year]
 
