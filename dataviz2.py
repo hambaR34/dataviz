@@ -109,7 +109,7 @@ elif chart_type == 'Stacked Bar Chart':
     elif sort_by == 'Total Waste Recycled':
         grouped_data = grouped_data.sort_values(by='total_waste_recycled_tonne', ascending=False)
     else:
-        grouped_data = grouped_data.sort_values(by='Total Waste', ascending=False)
+        grouped_data = grouped_data.sort_values(by='Total Waste', ascending=True)
 
     st.write("The stacked bar chart represents waste disposal and recycling quantities by waste type. By using the grouped_data DataFrame, which sums the waste disposed of and recycled for each waste type, it visualizes the relative proportions of waste disposal and recycling. Each bar is stacked to show the contribution of waste disposed of and waste recycled within each waste type. This visualization enables a comprehensive understanding of waste management practices across various waste types.")
     # Create the stacked bar chart using Plotly
