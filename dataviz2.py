@@ -7,7 +7,6 @@ import matplotlib.pyplot as plt
 
 # Load the data
 df = pd.read_csv('2003_2017_waste.csv')
-df = df.dropna()
 
 # Set Streamlit app title and layout
 st.set_page_config(page_title="Waste Management Analysis", layout="wide")
@@ -58,29 +57,15 @@ if chart_type == 'Home':
 # Line Chart
 elif chart_type == 'Line Chart':
     st.subheader("Line Chart")
-    #waste_types = df['waste_type'].unique()
-    #waste_type = st.sidebar.selectbox("Select Waste Type", waste_types)
-    #filtered_data = df[df['waste_type'] == waste_type]
-
-    #st.write("The line chart demonstrates the recycling rate over time for a specific waste type selected from the sidebar. It uses the filtered_data DataFrame to plot the recycling rate against the years. This visualization helps track the trend and changes in recycling rates for the chosen waste type.")
-    # Create the line chart using Plotly Express
-    #fig = px.line(filtered_data, x='year', y='recycling_rate', hover_data=['recycling_rate'])
-    #fig.update_layout(title=f'Recycling Rate for {waste_type} Over Time', xaxis_title='Year', yaxis_title='Recycling Rate')
-    #st.plotly_chart(fig)
-
-    waste_type = 'Plastics'  # Replace with the desired waste type
+    waste_types = df['waste_type'].unique()
+    waste_type = st.sidebar.selectbox("Select Waste Type", waste_types)
     filtered_data = df[df['waste_type'] == waste_type]
-    
-    # Create a line chart
-    filtered_data.plot(x='year', y='recycling_rate', kind='line')
-    
-    # Set the plot title and labels
-    plt.title(f'Recycling Rate for {waste_type} Over Time')
-    plt.xlabel('Year')
-    plt.ylabel('Recycling Rate')
-    
-    # Show the plot
-    plt.show()
+
+    st.write("The line chart demonstrates the recycling rate over time for a specific waste type selected from the sidebar. It uses the filtered_data DataFrame to plot the recycling rate against the years. This visualization helps track the trend and changes in recycling rates for the chosen waste type.")
+    # Create the line chart using Plotly Express
+    fig = px.line(filtered_data, x='year', y='recycling_rate', hover_data=['recycling_rate'])
+    fig.update_layout(title=f'Recycling Rate for {waste_type} Over Time', xaxis_title='Year', yaxis_title='Recycling Rate')
+    st.plotly_chart(fig)
 
 # Bar Chart
 elif chart_type == 'Bar Chart':
