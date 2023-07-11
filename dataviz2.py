@@ -107,7 +107,7 @@ elif chart_type == 'Stacked Bar Chart':
     if sort_by == 'Waste Disposed':
         grouped_data = grouped_data.sort_values(by='waste_disposed_of_tonne', ascending=False)
     elif sort_by == 'Total Waste Recycled':
-        grouped_data = grouped_data.sort_values(by='total_waste_recycled_tonne', ascending=False)
+        grouped_data = grouped_data.sort_values(by='total_waste_recycled_tonne', ascending=True)
     else:
         grouped_data = grouped_data.sort_values(by='Total Waste', ascending=True)
 
