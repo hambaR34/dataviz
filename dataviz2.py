@@ -115,15 +115,17 @@ elif chart_type == 'Stacked Bar Chart':
     # Create the stacked bar chart using Plotly
     fig = go.Figure()
     fig.add_trace(go.Bar(
-        x=grouped_data.index,
-        y=grouped_data['waste_disposed_of_tonne'],
+        y=grouped_data.index,
+        x=grouped_data['waste_disposed_of_tonne'],
         name='Waste Disposed',
+        orientation='h',
         marker_color='#FF6103'
     ))
     fig.add_trace(go.Bar(
-        x=grouped_data.index,
-        y=grouped_data['total_waste_recycled_tonne'],
+        y=grouped_data.index,
+        x=grouped_data['total_waste_recycled_tonne'],
         name='Waste Recycled',
+        orientation='h',
         marker_color='#00BFFF'
     ))
 
